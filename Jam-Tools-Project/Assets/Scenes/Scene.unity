@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 1508114352}
   - component: {fileID: 1508114353}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -634,7 +634,14 @@ MonoBehaviour:
     pitch: 1
     go: {fileID: 0}
     audioSource: {fileID: 0}
-  sfxCollection: []
+  sfxCollection:
+  - Name: Lol
+    audioClip: {fileID: 0}
+    isLooping: 0
+    volume: 0
+    pitch: 0
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
 --- !u!1 &1893488801
 GameObject:
   m_ObjectHideFlags: 0
