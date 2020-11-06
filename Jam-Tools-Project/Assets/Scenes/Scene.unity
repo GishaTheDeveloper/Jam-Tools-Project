@@ -626,22 +626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf4889b9d97c794d84d0d3cfaf98388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicCollection:
-  - Name: Music_1
-    audioClip: {fileID: 8300000, guid: cc0b1d3395eb9a441bdc1cdf4775f9e3, type: 3}
-    isLooping: 0
-    volume: 1
-    pitch: 1
-    go: {fileID: 0}
-    audioSource: {fileID: 0}
-  sfxCollection:
-  - Name: Lol
-    audioClip: {fileID: 0}
-    isLooping: 0
-    volume: 0
-    pitch: 0
-    go: {fileID: 0}
-    audioSource: {fileID: 0}
+  musicCollection: []
+  sfxCollection: []
 --- !u!1 &1893488801
 GameObject:
   m_ObjectHideFlags: 0
