@@ -7,7 +7,6 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { private set; get; }
     #endregion
 
-    [Header("Collections of audio")]
     public AudioData[] musicCollection;
     public AudioData[] sfxCollection;
 
