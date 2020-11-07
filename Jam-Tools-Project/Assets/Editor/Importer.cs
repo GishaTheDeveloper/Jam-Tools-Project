@@ -6,7 +6,17 @@ using UnityEngine;
 public class Importer : EditorWindow
 {
     private string folderPath;
-    private List<AudioClip> resources = new List<AudioClip>();
+
+    private List<ResourceData> resources = new List<ResourceData>();
+    private List<ResourceData> output = new List<ResourceData>();
+
+    [SerializeField] private AudioManager importTarget;
+    [SerializeField] private string importCollection;
+
+    //private bool IsAllSelected { get => resources.TrueForAll(x => x.isSelected); }
+    private Color selectedColor = Color.cyan;
+    private Color unselectedColor = Color.black;
+    private string searchField;
 
     private bool IsLoadedResources { get => resources.Count > 0; }
 
@@ -24,7 +34,7 @@ public class Importer : EditorWindow
         window.Show();
     }
 
-    private List<AudioClip> GetResourcesAtPath(string _path)
+    private List<ResourceData> GetResourcesAtPath(string _path)
     {
         if (!Directory.Exists(_path))
         {
@@ -32,17 +42,36 @@ public class Importer : EditorWindow
             return null;
         }
 
-        string[] files = Directory.GetFiles(_path);
-        List<AudioClip> result = new List<AudioClip>();
+        string[] pathes = Directory.GetFiles(_path);
+        List<ResourceData> result = new List<ResourceData>();
 
-        for (int i = 0; i < files.Length; i++)
+        for (int i = 0; i < pathes.Length; i++)
         {
-            AudioClip clip = AssetDatabase.LoadAssetAtPath(files[i], typeof(AudioClip)) as AudioClip;
-            if (clip != null)
-                result.Add(clip);
+            Object asset = AssetDatabase.LoadAssetAtPath(pathes[i], typeof(AudioClip));
+            if (asset == null) continue;
+
+            ResourceData r = new ResourceData(asset.name, asset as AudioClip);
+            result.Add(r);
         }
 
         return result;
+    }
+
+    private void ShowElement(ResourceData data, int index)
+    {
+        Color defColor = GUI.backgroundColor;
+        GUI.backgroundColor = data.isSelected ? selectedColor : unselectedColor;
+
+        EditorGUILayout.BeginHorizontal("box");
+
+        data.isSelected = EditorGUILayout.Toggle(data.isSelected, GUILayout.Width(35f));
+        EditorGUILayout.LabelField((index + 1).ToString(), GUILayout.Width(75f));
+        EditorGUILayout.LabelField(data.name);
+        EditorGUILayout.ObjectField(data.clip, typeof(AudioClip), false);
+
+        EditorGUILayout.EndHorizontal();
+
+        GUI.backgroundColor = defColor;
     }
 
     void OnEnable()
@@ -63,25 +92,48 @@ public class Importer : EditorWindow
 
         EditorGUILayout.BeginVertical();
 
+        // Selection block.
         folderPath = EditorGUILayout.TextField("Path:", folderPath);
 
         if (GUILayout.Button("Inspect"))
             resources = GetResourcesAtPath(folderPath);
 
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Select All")) resources.ForEach(x => x.isSelected = true);
+        if (GUILayout.Button("Deselect All")) resources.ForEach(x => x.isSelected = false);
+        EditorGUILayout.EndHorizontal();
+
+        searchField = EditorGUILayout.TextField(searchField);
+
+        // Resources block.
         if (IsLoadedResources)
         {
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos, true, false);
+            output = new List<ResourceData>();
             for (int i = 0; i < resources.Count; i++)
             {
-                EditorGUILayout.BeginHorizontal("box");
-                EditorGUILayout.LabelField((i + 1).ToString());
-                EditorGUILayout.LabelField(resources[i].name);
-                EditorGUILayout.ObjectField(resources[i], typeof(AudioClip), false);
-                EditorGUILayout.EndHorizontal();
+                if (string.IsNullOrEmpty(searchField) || resources[i].name.Contains(searchField))
+                {
+                    ShowElement(resources[i], i);
+
+                    if (resources[i].isSelected)
+                        output.Add(resources[i]);
+                }
             }
+
             EditorGUILayout.EndScrollView();
         }
 
+        // Import block.
+        EditorGUILayout.BeginHorizontal();
+
+        importTarget = EditorGUILayout.ObjectField(importTarget, typeof(AudioManager), true) as AudioManager;
+        importCollection = EditorGUILayout.TextField(importCollection);
+        if (GUILayout.Button("Import"))
+            if (importTarget != null)
+                importTarget.Import(importCollection, output.ToArray());
+
+        EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.EndVertical();
     }

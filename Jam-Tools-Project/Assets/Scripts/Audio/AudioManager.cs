@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, IImportTarget
 {
     #region Singleton
     public static AudioManager Instance { private set; get; }
@@ -149,6 +149,30 @@ public class AudioManager : MonoBehaviour
 
         for (int i = 0; i < sfxCollection.Length; i++)
             sfxCollection[i].audioSource.volume = volume;
+    }
+    #endregion
+
+    #region IImportTarget
+    public void Import(string _collection, ResourceData[] _resources)
+    {
+        AudioData[] coll = new AudioData[_resources.Length];
+
+        for (int i = 0; i < _resources.Length; i++)
+        {
+            AudioData data = new AudioData();
+            data.Name = _resources[i].name;
+            data.audioClip = _resources[i].clip;
+
+            data.isLooping = false;
+            data.volume = 1f;
+            data.pitch = 1f;
+
+            coll[i] = data;
+        }
+
+        this.GetType()
+            .GetField(_collection)
+            .SetValue(this, coll);
     }
     #endregion
 }

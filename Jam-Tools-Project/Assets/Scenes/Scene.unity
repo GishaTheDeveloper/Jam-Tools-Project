@@ -627,7 +627,707 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicCollection: []
-  sfxCollection: []
+  sfxCollection:
+  - Name: back_001
+    audioClip: {fileID: 8300000, guid: e8836d4576b4908489ddecdb4afc09fb, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: back_002
+    audioClip: {fileID: 8300000, guid: e8d7d4cf7ec8b734b8d2c565a75dee3b, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: back_003
+    audioClip: {fileID: 8300000, guid: 4aaf280c546942046943c7b3223742d5, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: back_004
+    audioClip: {fileID: 8300000, guid: acd0169e97fbb464a85911432d126c60, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: bong_001
+    audioClip: {fileID: 8300000, guid: 4ad145386d4722c49892e71fa8c7e743, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: click_001
+    audioClip: {fileID: 8300000, guid: 9d2744c7e734a894a8b05a0a7d0cafa6, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: click_002
+    audioClip: {fileID: 8300000, guid: 85f0ac4e2af50224298a42321f28899c, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: click_003
+    audioClip: {fileID: 8300000, guid: 1f7874c0114806f44a48e374552ff9b2, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: click_004
+    audioClip: {fileID: 8300000, guid: f74bd7df5e1d979409f618b97c7adfdb, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: click_005
+    audioClip: {fileID: 8300000, guid: fc2851aada73bac47a4dae9109391394, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: close_001
+    audioClip: {fileID: 8300000, guid: a2a93bedc914ba74b8f2701423def04d, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: close_002
+    audioClip: {fileID: 8300000, guid: e0472db1af9bebd4cbc8609a5e0340ba, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: close_003
+    audioClip: {fileID: 8300000, guid: d1f6e69d6623b964fa0f8c59a2489aa1, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: close_004
+    audioClip: {fileID: 8300000, guid: c2686d4b07cd00f499b39b57b1c1aab9, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: confirmation_001
+    audioClip: {fileID: 8300000, guid: c34bef4cf16433d4e979e835f455dd12, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: confirmation_002
+    audioClip: {fileID: 8300000, guid: f70847d1a39b14542bcaa0b66a99db7b, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: confirmation_003
+    audioClip: {fileID: 8300000, guid: f4e17f77ac3707d41978a2b72358d110, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: confirmation_004
+    audioClip: {fileID: 8300000, guid: 6919572b8876c4546a16a1c349e1e649, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: drop_001
+    audioClip: {fileID: 8300000, guid: c0302349c3da27746a4d90816a57d74c, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: drop_002
+    audioClip: {fileID: 8300000, guid: da10874d4ace53045a9c563904d5760f, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: drop_003
+    audioClip: {fileID: 8300000, guid: 61d5adb99949af943a2e6b708a340d93, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: drop_004
+    audioClip: {fileID: 8300000, guid: faaeb88eaed6b9f4eb651e7dd1b763fa, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: error_001
+    audioClip: {fileID: 8300000, guid: 3b806ae4b17a1bf48ba3d1f2f5fd6430, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: error_002
+    audioClip: {fileID: 8300000, guid: 166a393dd8e64ec4f9b36e1a11c65f0d, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: error_003
+    audioClip: {fileID: 8300000, guid: 4e1a8d43419638e4f88b24d20ab4e144, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: error_004
+    audioClip: {fileID: 8300000, guid: b3e991aa8e5f10f46b69ff776cc4602a, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: error_005
+    audioClip: {fileID: 8300000, guid: 623e673c0df17a54f87d1e70ab951a85, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: error_006
+    audioClip: {fileID: 8300000, guid: dbce21a516624d94bb1e109bbcf50f4a, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: error_007
+    audioClip: {fileID: 8300000, guid: 1413209481416504b8f91da59f2b48b3, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: error_008
+    audioClip: {fileID: 8300000, guid: f42e6b9f896092743ad6c56d24453dba, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glass_001
+    audioClip: {fileID: 8300000, guid: 123b0b6de27f5904394916628f4dfdb6, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glass_002
+    audioClip: {fileID: 8300000, guid: e7d66d805cfc40f4b8b0c256ed0a83f4, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glass_003
+    audioClip: {fileID: 8300000, guid: 9a93bc381c6a50f42b008f73eabca0c4, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glass_004
+    audioClip: {fileID: 8300000, guid: 7b5ce54e8b831ca4e94048b12c4990cf, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glass_005
+    audioClip: {fileID: 8300000, guid: f4b24bd472dc0f9429232efbf778fac7, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glass_006
+    audioClip: {fileID: 8300000, guid: 259e9c982c8f41d48a0feb9c5d5845cf, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glitch_001
+    audioClip: {fileID: 8300000, guid: 84580eddbe3ffb24395c795d120d7816, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glitch_002
+    audioClip: {fileID: 8300000, guid: 181c9a5414f9b8440bcc55f964bd6b0a, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glitch_003
+    audioClip: {fileID: 8300000, guid: 9d619e951adc85141a14726b99135bc5, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: glitch_004
+    audioClip: {fileID: 8300000, guid: 6551cb938f9da944b905584c6211f7e2, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: maximize_001
+    audioClip: {fileID: 8300000, guid: 9422e4d953f1b2040bab9e6674a06476, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: maximize_002
+    audioClip: {fileID: 8300000, guid: e585ad789f018f14ab8c1ffa1b88c1da, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: maximize_003
+    audioClip: {fileID: 8300000, guid: 14105b743db418248936c39950792b46, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: maximize_004
+    audioClip: {fileID: 8300000, guid: 81e7a41e92130584cb697ab53434a0eb, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: maximize_005
+    audioClip: {fileID: 8300000, guid: 51e7bb5dc63552c4c866a29ec44bf32c, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: maximize_006
+    audioClip: {fileID: 8300000, guid: f687b520b1c49904ab0c61fdab802979, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: maximize_007
+    audioClip: {fileID: 8300000, guid: 987f4da76374a354fb302638aa17307a, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: maximize_008
+    audioClip: {fileID: 8300000, guid: 170c214f5dd6663429c38c3b99a1a0c9, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: maximize_009
+    audioClip: {fileID: 8300000, guid: d3d13158cec6b37468350fdae3d88836, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: minimize_001
+    audioClip: {fileID: 8300000, guid: 7087a63800ce2704093a976cd7133a3d, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: minimize_002
+    audioClip: {fileID: 8300000, guid: b9b9b3fa1a2ab2f4fb941de498c9970a, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: minimize_003
+    audioClip: {fileID: 8300000, guid: 9d3d71bc822703744b30c220b0d1d6f0, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: minimize_004
+    audioClip: {fileID: 8300000, guid: 0552c1463d8c7094684351fe74324129, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: minimize_005
+    audioClip: {fileID: 8300000, guid: 640033aede136c44994e09ec8b04e4e0, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: minimize_006
+    audioClip: {fileID: 8300000, guid: 7cbe8c49233fef646b6ab5536ffc5f23, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: minimize_007
+    audioClip: {fileID: 8300000, guid: 8ff0204dc8a0d9c408f843e445af52be, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: minimize_008
+    audioClip: {fileID: 8300000, guid: aae9fa29b9e7817428e0a8958be3825d, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: minimize_009
+    audioClip: {fileID: 8300000, guid: ec94ec81b7a98ed49962efba3e6baaa1, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: open_001
+    audioClip: {fileID: 8300000, guid: 46fc38a3d5393274b968e6f32732dee5, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: open_002
+    audioClip: {fileID: 8300000, guid: f2b5d419e7ebd9b4e93655389dcae6cb, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: open_003
+    audioClip: {fileID: 8300000, guid: a9bf5768723731b48b8aad2c6c12843c, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: open_004
+    audioClip: {fileID: 8300000, guid: 5b4cf2c0ba7f96e40b8e0ff37be6da44, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: pluck_001
+    audioClip: {fileID: 8300000, guid: ab084b8b1f4c96944a1bbd28f5193734, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: pluck_002
+    audioClip: {fileID: 8300000, guid: a114918a0bb3bda4ca03a9f3f2b045ee, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: question_001
+    audioClip: {fileID: 8300000, guid: ac6a029f1d573d046878f355fd2cd576, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: question_002
+    audioClip: {fileID: 8300000, guid: 939d157bc67965a479a0a03c2bc05814, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: question_003
+    audioClip: {fileID: 8300000, guid: 1d4e0c6489aa12e4aaf69db98c10f6ee, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: question_004
+    audioClip: {fileID: 8300000, guid: 5d10266c760b45a43be1f800d833b965, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scratch_001
+    audioClip: {fileID: 8300000, guid: 0d3fc453f160da146873759f086bd456, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scratch_002
+    audioClip: {fileID: 8300000, guid: bc9116ae63113cf4a9281add5fd02413, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scratch_003
+    audioClip: {fileID: 8300000, guid: b404011f5766068448c6bcef487ea957, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scratch_004
+    audioClip: {fileID: 8300000, guid: 4e7a2580569ebe5458669a89735aea21, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scratch_005
+    audioClip: {fileID: 8300000, guid: 70b2af09dcb9cee4e9d1bf5580f95a8d, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scroll_001
+    audioClip: {fileID: 8300000, guid: 2987cc00977e02f4e9e10d8abd8aac82, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scroll_002
+    audioClip: {fileID: 8300000, guid: 4f3c91df9934fcd49818a9853365a404, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scroll_003
+    audioClip: {fileID: 8300000, guid: 4eef84c1975bdf941ad10febd534e34c, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scroll_004
+    audioClip: {fileID: 8300000, guid: 40e98ec2844af0d40834568724aa56d2, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: scroll_005
+    audioClip: {fileID: 8300000, guid: da9fdbcbefc740848a61e731c2e08ea3, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: select_001
+    audioClip: {fileID: 8300000, guid: 755fd9706fddc3643be6b8816de0f760, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: select_002
+    audioClip: {fileID: 8300000, guid: 403ca21ed02af2d4d802473870eb0fd2, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: select_003
+    audioClip: {fileID: 8300000, guid: 869dc8c2bee836d4598cac30e60a8762, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: select_004
+    audioClip: {fileID: 8300000, guid: cc80ce48312ea5f46bfed7b962cf30f8, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: select_005
+    audioClip: {fileID: 8300000, guid: fb401821f2904b34dbdbaefcad65925a, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: select_006
+    audioClip: {fileID: 8300000, guid: dabdfba9bdf66d541a402d32481231bc, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: select_007
+    audioClip: {fileID: 8300000, guid: c3afbde6ebfb0124a8ddcb0c1018600a, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: select_008
+    audioClip: {fileID: 8300000, guid: a6088a1bcf7a9f64fa184c7de28987dc, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: switch_001
+    audioClip: {fileID: 8300000, guid: f9316677b6a359742a19475e05964943, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: switch_002
+    audioClip: {fileID: 8300000, guid: 5dbf416b23652e24da62e7c934c5a8e0, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: switch_003
+    audioClip: {fileID: 8300000, guid: 7ef5f7ddc3af638438f1b068ef5c78d0, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: switch_004
+    audioClip: {fileID: 8300000, guid: b779d289346cbff40b5e04d2b0a6d781, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: switch_005
+    audioClip: {fileID: 8300000, guid: 8f319c65babe7f04d92702ab8c38bc93, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: switch_006
+    audioClip: {fileID: 8300000, guid: eb17f1ced2d13e0439b1c8de77b97756, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: switch_007
+    audioClip: {fileID: 8300000, guid: 3c09985efb7aa094588dc3393c82723c, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: tick_001
+    audioClip: {fileID: 8300000, guid: 2d4a1ded5cd9a7244b3dc5373e1fd31c, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: tick_002
+    audioClip: {fileID: 8300000, guid: 12093197e39d68f4b9e535ca22739d62, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: tick_004
+    audioClip: {fileID: 8300000, guid: 4f3a2e3821f10bb4fa77e0dd5657ed9e, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: toggle_001
+    audioClip: {fileID: 8300000, guid: c8c4bd2800a158042a6959bea74ae96c, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: toggle_002
+    audioClip: {fileID: 8300000, guid: b22f4c5d9c8a1e74ebf337b70e31946a, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: toggle_003
+    audioClip: {fileID: 8300000, guid: 9b4885b849533094c98ef8dd55258c66, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
+  - Name: toggle_004
+    audioClip: {fileID: 8300000, guid: 100c3d607e3dd2c4aa81f6b3f2c520b7, type: 3}
+    isLooping: 0
+    volume: 1
+    pitch: 1
+    go: {fileID: 0}
+    audioSource: {fileID: 0}
 --- !u!1 &1893488801
 GameObject:
   m_ObjectHideFlags: 0
