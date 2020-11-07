@@ -4,6 +4,8 @@ using UnityEngine;
 [CustomEditor(typeof(AudioManager))]
 public class AudioManagerEditor : Editor
 {
+    private AudioManager manager;
+
     private SerializedProperty sfxProp;
     private SerializedProperty musicProp;
 
@@ -17,6 +19,7 @@ public class AudioManagerEditor : Editor
     {
         sfxProp = serializedObject.FindProperty("sfxCollection");
         musicProp = serializedObject.FindProperty("musicCollection");
+        manager = target as AudioManager;
     }
 
     public override void OnInspectorGUI()
@@ -35,10 +38,10 @@ public class AudioManagerEditor : Editor
         buttonsBlock.margin = new RectOffset(0, 0, 10, 0);
         #endregion
 
-        var manager = target as AudioManager;
+
 
         EditorGUILayout.LabelField("Collections", bold);
-        
+
         InitCollection(sfxProp, "SFX");
         InitCollection(musicProp, "Music");
     }
@@ -58,7 +61,11 @@ public class AudioManagerEditor : Editor
         defColor = GUI.color;
         GUI.backgroundColor = Color.blue;
         if (GUILayout.Button(string.Format("Call {0} Importer", shortName)))
-            Debug.Log("L");
+        {
+            Importer.ShowWindow();
+            Importer.InitData(manager, shortName.ToLower() + "Collection");
+        }
+
         GUI.backgroundColor = defColor;
 
         // Clear subblock.

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour, IImportTarget
+public class AudioManager : ImportTarget
 {
     #region Singleton
     public static AudioManager Instance { private set; get; }
@@ -153,7 +153,7 @@ public class AudioManager : MonoBehaviour, IImportTarget
     #endregion
 
     #region IImportTarget
-    public void Import(string _collection, ResourceData[] _resources)
+    public override void Import(string _collection, ResourceData[] _resources)
     {
         AudioData[] coll = new AudioData[_resources.Length];
 
@@ -170,6 +170,7 @@ public class AudioManager : MonoBehaviour, IImportTarget
             coll[i] = data;
         }
 
+        
         this.GetType()
             .GetField(_collection)
             .SetValue(this, coll);

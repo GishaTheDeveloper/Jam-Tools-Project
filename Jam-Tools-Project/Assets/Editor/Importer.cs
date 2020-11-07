@@ -5,20 +5,23 @@ using UnityEngine;
 
 public class Importer : EditorWindow
 {
+    #region Singleton
+    public static Importer Instance { private set; get; }
+    #endregion
+
     private string folderPath;
 
     private List<ResourceData> resources = new List<ResourceData>();
     private List<ResourceData> output = new List<ResourceData>();
 
-    [SerializeField] private AudioManager importTarget;
+    [SerializeField] private ImportTarget importTarget;
     [SerializeField] private string importCollection;
 
-    //private bool IsAllSelected { get => resources.TrueForAll(x => x.isSelected); }
     private Color selectedColor = Color.cyan;
     private Color unselectedColor = Color.black;
     private string searchField;
 
-    private bool IsLoadedResources { get => resources.Count > 0; }
+    private bool IsLoadedResources { get => resources != null && resources.Count > 0; }
 
     Vector2 scrollPos = Vector2.zero;
 
@@ -27,11 +30,17 @@ public class Importer : EditorWindow
     #endregion
 
     [MenuItem("Tools/Importer")]
-    static void Init()
+    public static void ShowWindow()
     {
         Importer window = (Importer)EditorWindow.GetWindow(typeof(Importer));
 
         window.Show();
+    }
+
+    public static void InitData(ImportTarget _importTarget, string _importCollection)
+    {
+        Instance.importTarget = _importTarget;
+        Instance.importCollection = _importCollection;
     }
 
     private List<ResourceData> GetResourcesAtPath(string _path)
@@ -76,6 +85,8 @@ public class Importer : EditorWindow
 
     void OnEnable()
     {
+        Instance = this;
+
         #region Styles
         descText = new GUIStyle();
         descText.fontSize = 14;
@@ -87,27 +98,31 @@ public class Importer : EditorWindow
     void OnGUI()
     {
         EditorGUILayout.BeginVertical();
-        EditorGUILayout.LabelField("* Use Importer to easily fill necessary components with resources.", descText);
+        EditorGUILayout.LabelField("Get Resources:", descText);
         EditorGUILayout.EndVertical();
 
         EditorGUILayout.BeginVertical();
 
         // Selection block.
-        folderPath = EditorGUILayout.TextField("Path:", folderPath);
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.TextField("Path:", folderPath);
+        if (GUILayout.Button("Browse", GUILayout.MaxWidth(100f)))
+            folderPath = "Assets/" + EditorUtility.OpenFolderPanel("Local Resources Directory", "", "").Substring(Application.dataPath.Length);
+        EditorGUILayout.EndHorizontal();
 
-        if (GUILayout.Button("Inspect"))
-            resources = GetResourcesAtPath(folderPath);
+        if (GUILayout.Button("Get Resources")) resources = GetResourcesAtPath(folderPath);
 
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Select All")) resources.ForEach(x => x.isSelected = true);
         if (GUILayout.Button("Deselect All")) resources.ForEach(x => x.isSelected = false);
         EditorGUILayout.EndHorizontal();
 
-        searchField = EditorGUILayout.TextField(searchField);
+        searchField = EditorGUILayout.TextField("Search:", searchField);
 
         // Resources block.
         if (IsLoadedResources)
         {
+            EditorGUILayout.LabelField("Select Resources:", descText);
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos, true, false);
             output = new List<ResourceData>();
             for (int i = 0; i < resources.Count; i++)
@@ -122,18 +137,24 @@ public class Importer : EditorWindow
             }
 
             EditorGUILayout.EndScrollView();
+
+            // Import block.
+            EditorGUILayout.LabelField("Import:", descText);
+            EditorGUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginVertical();
+            importTarget = EditorGUILayout.ObjectField("Import Target:", importTarget, typeof(ImportTarget), true) as ImportTarget;
+            importCollection = EditorGUILayout.TextField("Collection Name:", importCollection, GUILayout.MinWidth(100f));
+            EditorGUILayout.EndVertical();
+
+            EditorGUILayout.BeginVertical();
+            if (GUILayout.Button("Import"))
+                if (importTarget != null)
+                    importTarget.Import(importCollection, output.ToArray());
+            EditorGUILayout.EndVertical();
+
+            EditorGUILayout.EndHorizontal();
         }
-
-        // Import block.
-        EditorGUILayout.BeginHorizontal();
-
-        importTarget = EditorGUILayout.ObjectField(importTarget, typeof(AudioManager), true) as AudioManager;
-        importCollection = EditorGUILayout.TextField(importCollection);
-        if (GUILayout.Button("Import"))
-            if (importTarget != null)
-                importTarget.Import(importCollection, output.ToArray());
-
-        EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.EndVertical();
     }
