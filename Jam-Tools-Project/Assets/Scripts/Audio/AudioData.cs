@@ -9,6 +9,7 @@ public class AudioData
 
     [Header("Audio Source Settings")]
     public bool isLooping;
+    public bool isFade;
     [Range(0f, 1f)]
     public float volume;
     [Range(0.3f, 3f)]

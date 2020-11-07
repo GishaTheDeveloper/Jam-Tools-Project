@@ -10,6 +10,7 @@ public class AudioManagerEditor : Editor
     private SerializedProperty musicProp;
 
     #region Styles
+    GUIStyle header;
     GUIStyle bold;
     GUIStyle collectionBlock;
     GUIStyle buttonsBlock;
@@ -25,8 +26,13 @@ public class AudioManagerEditor : Editor
     public override void OnInspectorGUI()
     {
         #region Styles
+        header = new GUIStyle();
+        header.fontSize = 15;
+        header.fontStyle = FontStyle.Bold;
+        header.normal.textColor = Color.white;
+
         bold = new GUIStyle();
-        bold.fontSize = 15;
+        bold.fontSize = 12;
         bold.fontStyle = FontStyle.Bold;
         bold.normal.textColor = Color.white;
 
@@ -38,20 +44,24 @@ public class AudioManagerEditor : Editor
         buttonsBlock.margin = new RectOffset(0, 0, 10, 0);
         #endregion
 
+        EditorGUILayout.LabelField("Collections", header);
 
-
-        EditorGUILayout.LabelField("Collections", bold);
-
+        EditorGUILayout.BeginVertical(collectionBlock);
         InitCollection(sfxProp, "SFX");
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.BeginVertical(collectionBlock);
         InitCollection(musicProp, "Music");
+        EditorGUILayout.Space(1f);
+        manager.fadeTransitionSpeed = EditorGUILayout.FloatField("Fade Transition Speed", manager.fadeTransitionSpeed);
+        EditorGUILayout.EndVertical();
     }
 
     private void InitCollection(SerializedProperty collection, string shortName)
     {
         Color defColor = GUI.backgroundColor;
 
-        EditorGUILayout.BeginVertical(collectionBlock);
-
+        EditorGUILayout.LabelField(shortName.ToUpper(), bold);
         serializedObject.Update();
         EditorGUILayout.PropertyField(collection, true);
 
@@ -78,7 +88,5 @@ public class AudioManagerEditor : Editor
         EditorGUILayout.EndHorizontal();
 
         serializedObject.ApplyModifiedProperties();
-
-        EditorGUILayout.EndVertical();
     }
 }

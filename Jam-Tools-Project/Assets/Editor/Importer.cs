@@ -150,7 +150,11 @@ public class Importer : EditorWindow
             EditorGUILayout.BeginVertical();
             if (GUILayout.Button("Import"))
                 if (importTarget != null)
+                {
                     importTarget.Import(importCollection, output.ToArray());
+                    Debug.Log("Importing Resources...");
+                }
+                    
             EditorGUILayout.EndVertical();
 
             EditorGUILayout.EndHorizontal();

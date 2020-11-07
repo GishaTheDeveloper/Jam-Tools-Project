@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : ImportTarget
@@ -10,7 +11,10 @@ public class AudioManager : ImportTarget
     public AudioData[] musicCollection;
     public AudioData[] sfxCollection;
 
-    private AudioData currentMusic;
+    public float fadeTransitionSpeed = 0.5f;
+
+    private AudioData currMusic;
+    private AudioData prevMusic;
 
     #region PROPERTIES
     public bool IsMusicMuted { get { return MusicVolume == 0; } }
@@ -37,11 +41,6 @@ public class AudioManager : ImportTarget
 
         SetUpAudioArray(musicCollection);
         SetUpAudioArray(sfxCollection);
-    }
-
-    void Start()
-    {
-        PlayMusic("Music");
     }
 
     private void CreateInstance()
@@ -88,8 +87,10 @@ public class AudioManager : ImportTarget
         }
         else
         {
-            currentMusic = data;
-            currentMusic.audioSource.Play();
+            prevMusic = currMusic;
+            currMusic = data;
+
+            PlayNextMusicTrack();
         }
     }
 
@@ -100,9 +101,24 @@ public class AudioManager : ImportTarget
             Debug.LogError("There is no music with index " + index);
             return;
         }
-
         AudioData data = musicCollection[index];
-        data.audioSource.Play();
+
+        prevMusic = currMusic;
+        currMusic = data;
+
+        PlayNextMusicTrack();
+    }
+
+    private void PlayNextMusicTrack()
+    {
+        currMusic.audioSource.Play();
+
+        if (!currMusic.isFade && prevMusic != null) prevMusic.audioSource.Stop();
+        if (currMusic.isFade)
+        {
+            StartCoroutine(FadeIn(currMusic));
+            if (prevMusic != null) StartCoroutine(FadeOut(prevMusic));
+        }
     }
     #endregion
 
@@ -134,6 +150,38 @@ public class AudioManager : ImportTarget
     }
     #endregion
 
+    #region Fade Transition
+    private IEnumerator FadeIn(AudioData _audioData)
+    {
+        _audioData.audioSource.volume = 0;
+        float volume = _audioData.audioSource.volume;
+
+        while (_audioData.audioSource.volume < _audioData.volume)
+        {
+            volume += fadeTransitionSpeed * Time.deltaTime;
+            _audioData.audioSource.volume = volume;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    private IEnumerator FadeOut(AudioData _audioData)
+    {
+        float volume = _audioData.audioSource.volume;
+
+        while (_audioData.audioSource.volume > 0)
+        {
+            volume -= fadeTransitionSpeed * Time.deltaTime;
+            _audioData.audioSource.volume = volume;
+            yield return new WaitForSeconds(0.1f);
+        }
+        if (_audioData.audioSource.volume == 0)
+        {
+            _audioData.audioSource.Stop();
+            _audioData.audioSource.volume = _audioData.volume;
+        }
+    }
+    #endregion
+
     #region Volume
     public void SetMusicVolume(float volume)
     {
@@ -152,7 +200,7 @@ public class AudioManager : ImportTarget
     }
     #endregion
 
-    #region IImportTarget
+    #region ImportTarget
     public override void Import(string _collection, ResourceData[] _resources)
     {
         AudioData[] coll = new AudioData[_resources.Length];
@@ -170,10 +218,7 @@ public class AudioManager : ImportTarget
             coll[i] = data;
         }
 
-        
-        this.GetType()
-            .GetField(_collection)
-            .SetValue(this, coll);
+        this.GetType().GetField(_collection).SetValue(this, coll);
     }
     #endregion
 }
