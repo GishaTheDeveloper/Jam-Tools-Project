@@ -209,7 +209,7 @@ public class AudioManager : ImportTarget
         {
             AudioData data = new AudioData();
             data.Name = _resources[i].name;
-            data.audioClip = _resources[i].clip;
+            data.audioClip = _resources[i].o as AudioClip;
 
             data.isLooping = false;
             data.volume = 1f;

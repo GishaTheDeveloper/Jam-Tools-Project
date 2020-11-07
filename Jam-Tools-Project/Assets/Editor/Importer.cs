@@ -56,10 +56,10 @@ public class Importer : EditorWindow
 
         for (int i = 0; i < pathes.Length; i++)
         {
-            Object asset = AssetDatabase.LoadAssetAtPath(pathes[i], typeof(AudioClip));
+            Object asset = AssetDatabase.LoadAssetAtPath(pathes[i], typeof(Object));
             if (asset == null) continue;
 
-            ResourceData r = new ResourceData(asset.name, asset as AudioClip);
+            ResourceData r = new ResourceData(asset.name, asset);
             result.Add(r);
         }
 
@@ -76,7 +76,7 @@ public class Importer : EditorWindow
         data.isSelected = EditorGUILayout.Toggle(data.isSelected, GUILayout.Width(35f));
         EditorGUILayout.LabelField((index + 1).ToString(), GUILayout.Width(75f));
         EditorGUILayout.LabelField(data.name);
-        EditorGUILayout.ObjectField(data.clip, typeof(AudioClip), false);
+        EditorGUILayout.ObjectField(data.o, typeof(Object), false);
 
         EditorGUILayout.EndHorizontal();
 

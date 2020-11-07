@@ -2,14 +2,14 @@
 
 public class ResourceData
 {
-    public AudioClip clip;
+    public Object o;
     public string name;
 
     public bool isSelected = false;
 
-    public ResourceData(string _name, AudioClip _clip)
+    public ResourceData(string _name, Object _o)
     {
         name = _name;
-        clip = _clip;
+        o = _o;
     }
 }
