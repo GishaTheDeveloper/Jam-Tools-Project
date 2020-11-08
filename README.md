@@ -1,6 +1,7 @@
 # Jam-Tools-Project
 **Tools, which are both useful for jam developing and general development.**
-**My Purpose is to automate and simplify all the unnecessary labour which is made in game making cycle.**
+
+#### My Purpose is to automate and simplify all the unnecessary labour which is made in game making cycle.
 
 # Content:
 ### [Editor](https://github.com/GishaTheDeveloper/Jam-Tools-Project/tree/main/Jam-Tools-Project/Assets/Editor):
