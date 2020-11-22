@@ -1,5 +1,5 @@
 # Jam-Tools-Project
-**Tools, which are both useful for jam developing and general development.**
+**Tools, which are useful for both jam and general development.**
 
 #### My Purpose is to automate and simplify all the unnecessary labour which is made in game making cycle.
 
