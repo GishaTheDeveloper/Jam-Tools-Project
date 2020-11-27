@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using Gisha.Effects.VFX;
 
-[CustomEditor(typeof(EffectsManager))]
+[CustomEditor(typeof(VFXManager))]
 public class EffectsManagerEditor : Editor
 {
-    private EffectsManager manager;
+    private VFXManager manager;
 
     private SerializedProperty effectsProp;
 
@@ -16,7 +17,7 @@ public class EffectsManagerEditor : Editor
 
     private void OnEnable()
     {
-        manager = target as EffectsManager;
+        manager = target as VFXManager;
 
         effectsProp = serializedObject.FindProperty("effectsCollection");
     }

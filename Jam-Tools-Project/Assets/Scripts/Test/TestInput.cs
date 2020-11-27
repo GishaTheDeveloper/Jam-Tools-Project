@@ -1,28 +1,33 @@
-﻿using UnityEngine;
+﻿using Gisha.Effects.Audio;
+using Gisha.Effects.VFX;
+using UnityEngine;
 
-public class TestInput : MonoBehaviour
+namespace Gisha.JamTools.Test
 {
-    public string sfxName;
-    public string vfxName;
-
-    Camera cam;
-
-    void Awake()
+    public class TestInput : MonoBehaviour
     {
-        cam = Camera.main;
-    }
+        public string sfxName;
+        public string vfxName;
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) OnClick();
-    }
+        Camera cam;
 
-    void OnClick()
-    {
-        AudioManager.Instance.PlaySFX(sfxName);
+        void Awake()
+        {
+            cam = Camera.main;
+        }
 
-        RaycastHit hitInfo;
-        if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hitInfo))
-            EffectsManager.Instance.Emit(vfxName, hitInfo.point, Quaternion.identity);
+        void Update()
+        {
+            if (Input.GetMouseButtonDown(0)) OnClick();
+        }
+
+        void OnClick()
+        {
+            AudioManager.Instance.PlaySFX(sfxName);
+
+            RaycastHit hitInfo;
+            if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hitInfo))
+                VFXManager.Instance.Emit(vfxName, hitInfo.point, Quaternion.identity);
+        }
     }
 }
