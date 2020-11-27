@@ -29,6 +29,20 @@ namespace Gisha.Effects.VFX
             Instantiate(effect.prefab, position, rotation);
         }
 
+        public void Emit(string effectName, Vector3 position)
+        {
+            EffectData effect = Array.Find(effectsCollection, x => x.name == effectName);
+            Quaternion rotation = effect.prefab.transform.rotation;
+
+            if (effect == null)
+            {
+                Debug.LogErrorFormat("Effect with name {0} wasn't found!", effectName);
+                return;
+            }
+
+            Instantiate(effect.prefab, position, rotation);
+        }
+
         #region ImportTarget
         public override void Import(string _collection, ResourceData[] _resources)
         {
