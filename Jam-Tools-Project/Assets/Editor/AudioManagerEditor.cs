@@ -1,6 +1,6 @@
-﻿using Gisha.Audio;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
+using Gisha.Effects.Audio;
 
 [CustomEditor(typeof(AudioManager))]
 public class AudioManagerEditor : Editor
