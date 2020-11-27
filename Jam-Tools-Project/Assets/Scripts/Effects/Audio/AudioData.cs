@@ -6,20 +6,36 @@ namespace Gisha.Effects.Audio
     public class AudioData
     {
         [Header("General")]
-        public string Name;
-        public AudioClip audioClip;
+        [SerializeField] private string name = default;
+        [SerializeField] private AudioClip audioClip = default;
 
-        [Header("Audio Source Settings")]
-        public bool isLooping;
-        public bool isFade;
+        [Header("Settings")]
+        [SerializeField] private bool isLooping = default;
+        [SerializeField] private bool isFade = default;
+
         [Range(0f, 1f)]
-        public float volume;
+        [SerializeField] private float volume = default;
         [Range(0.3f, 3f)]
-        public float pitch;
+        [SerializeField] private float pitch = default;
 
-        [HideInInspector]
-        public GameObject go;
-        [HideInInspector]
-        public AudioSource audioSource;
+        public AudioData(string name, AudioClip audioClip, float volume, float pitch, bool isLooping = false, bool isFade = false)
+        {
+            this.name = name;
+            this.audioClip = audioClip;
+            this.volume = volume;
+            this.pitch = pitch;
+            this.isLooping = isLooping;
+            this.isFade = isFade;
+        }
+
+        public GameObject GameObject { get; set; }
+        public AudioSource AudioSource { get; set; }
+
+        public string Name => name;
+        public AudioClip AudioClip => audioClip;
+        public bool IsLooping => isLooping;
+        public bool IsFade => isFade;
+        public float Volume => volume;
+        public float Pitch => pitch;
     }
 }

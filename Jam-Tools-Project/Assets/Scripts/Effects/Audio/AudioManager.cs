@@ -10,17 +10,12 @@ namespace Gisha.Effects.Audio
         public static AudioManager Instance { private set; get; }
         #endregion
 
-        public AudioData[] musicCollection;
-        public AudioData[] sfxCollection;
+        public AudioData[] musicCollection = default;
+        public AudioData[] sfxCollection = default;
+        public float fadeTransitionSpeed = default;
 
-        public float fadeTransitionSpeed = 0.5f;
-
-        private AudioData currMusic;
-        private AudioData prevMusic;
-
-        #region PROPERTIES
-        public bool IsMusicMuted { get { return MusicVolume == 0; } }
-        public bool IsSfxMuted { get { return SfxVolume == 0; } }
+        AudioData _currentMusic;
+        AudioData _previousMusic;
 
         public float MusicVolume
         {
@@ -35,7 +30,10 @@ namespace Gisha.Effects.Audio
             set { _sfxVolume = Mathf.Clamp01(value); }
         }
         float _sfxVolume = 1f;
-        #endregion
+
+        public bool IsMusicMuted => MusicVolume == 0;
+        public bool IsSfxMuted => SfxVolume == 0;
+
 
         void Awake()
         {
@@ -67,13 +65,13 @@ namespace Gisha.Effects.Audio
 
                 AudioSource audioSource = child.AddComponent<AudioSource>();
 
-                _array[i].go = child;
-                _array[i].audioSource = audioSource;
+                _array[i].GameObject = child;
+                _array[i].AudioSource = audioSource;
 
-                _array[i].audioSource.clip = _array[i].audioClip;
-                _array[i].audioSource.volume = _array[i].volume;
-                _array[i].audioSource.pitch = _array[i].pitch;
-                _array[i].audioSource.loop = _array[i].isLooping;
+                _array[i].AudioSource.clip = _array[i].AudioClip;
+                _array[i].AudioSource.volume = _array[i].Volume;
+                _array[i].AudioSource.pitch = _array[i].Pitch;
+                _array[i].AudioSource.loop = _array[i].IsLooping;
             }
         }
 
@@ -89,8 +87,8 @@ namespace Gisha.Effects.Audio
             }
             else
             {
-                prevMusic = currMusic;
-                currMusic = data;
+                _previousMusic = _currentMusic;
+                _currentMusic = data;
 
                 PlayNextMusicTrack();
             }
@@ -105,21 +103,21 @@ namespace Gisha.Effects.Audio
             }
             AudioData data = musicCollection[index];
 
-            prevMusic = currMusic;
-            currMusic = data;
+            _previousMusic = _currentMusic;
+            _currentMusic = data;
 
             PlayNextMusicTrack();
         }
 
         private void PlayNextMusicTrack()
         {
-            currMusic.audioSource.Play();
+            _currentMusic.AudioSource.Play();
 
-            if (!currMusic.isFade && prevMusic != null) prevMusic.audioSource.Stop();
-            if (currMusic.isFade)
+            if (!_currentMusic.IsFade && _previousMusic != null) _previousMusic.AudioSource.Stop();
+            if (_currentMusic.IsFade)
             {
-                StartCoroutine(FadeIn(currMusic));
-                if (prevMusic != null) StartCoroutine(FadeOut(prevMusic));
+                StartCoroutine(FadeIn(_currentMusic));
+                if (_previousMusic != null) StartCoroutine(FadeOut(_previousMusic));
             }
         }
         #endregion
@@ -135,7 +133,7 @@ namespace Gisha.Effects.Audio
             }
             else
             {
-                data.audioSource.Play();
+                data.AudioSource.Play();
             }
         }
 
@@ -148,38 +146,38 @@ namespace Gisha.Effects.Audio
             }
 
             AudioData data = sfxCollection[index];
-            data.audioSource.Play();
+            data.AudioSource.Play();
         }
         #endregion
 
         #region Fade Transition
         private IEnumerator FadeIn(AudioData _audioData)
         {
-            _audioData.audioSource.volume = 0;
-            float volume = _audioData.audioSource.volume;
+            _audioData.AudioSource.volume = 0;
+            float volume = _audioData.AudioSource.volume;
 
-            while (_audioData.audioSource.volume < _audioData.volume)
+            while (_audioData.AudioSource.volume < _audioData.Volume)
             {
                 volume += fadeTransitionSpeed * Time.deltaTime;
-                _audioData.audioSource.volume = volume;
+                _audioData.AudioSource.volume = volume;
                 yield return new WaitForSeconds(0.1f);
             }
         }
 
         private IEnumerator FadeOut(AudioData _audioData)
         {
-            float volume = _audioData.audioSource.volume;
+            float volume = _audioData.AudioSource.volume;
 
-            while (_audioData.audioSource.volume > 0)
+            while (_audioData.AudioSource.volume > 0)
             {
                 volume -= fadeTransitionSpeed * Time.deltaTime;
-                _audioData.audioSource.volume = volume;
+                _audioData.AudioSource.volume = volume;
                 yield return new WaitForSeconds(0.1f);
             }
-            if (_audioData.audioSource.volume == 0)
+            if (_audioData.AudioSource.volume == 0)
             {
-                _audioData.audioSource.Stop();
-                _audioData.audioSource.volume = _audioData.volume;
+                _audioData.AudioSource.Stop();
+                _audioData.AudioSource.volume = _audioData.Volume;
             }
         }
         #endregion
@@ -190,7 +188,7 @@ namespace Gisha.Effects.Audio
             MusicVolume = volume;
 
             for (int i = 0; i < musicCollection.Length; i++)
-                musicCollection[i].audioSource.volume = MusicVolume;
+                musicCollection[i].AudioSource.volume = MusicVolume;
         }
 
         public void SetSFXVolume(float volume)
@@ -198,29 +196,27 @@ namespace Gisha.Effects.Audio
             SfxVolume = volume;
 
             for (int i = 0; i < sfxCollection.Length; i++)
-                sfxCollection[i].audioSource.volume = volume;
+                sfxCollection[i].AudioSource.volume = volume;
         }
         #endregion
 
         #region ImportTarget
         public override void Import(string _collection, ResourceData[] _resources)
         {
-            AudioData[] coll = new AudioData[_resources.Length];
+            AudioData[] newCollection = new AudioData[_resources.Length];
 
             for (int i = 0; i < _resources.Length; i++)
             {
-                AudioData data = new AudioData();
-                data.Name = _resources[i].name;
-                data.audioClip = _resources[i].o as AudioClip;
+                AudioData data = new AudioData(
+                    _resources[i].name,
+                    _resources[i].o as AudioClip,
+                    1f,
+                    1f);
 
-                data.isLooping = false;
-                data.volume = 1f;
-                data.pitch = 1f;
-
-                coll[i] = data;
+                newCollection[i] = data;
             }
 
-            GetType().GetField(_collection).SetValue(this, coll);
+            GetType().GetField(_collection).SetValue(this, newCollection);
         }
         #endregion
     }
