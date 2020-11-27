@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61762076131330a42a114809ff7d371d, type: 3}
+  m_Name: PoolObjectsCollection
+  m_EditorClassIdentifier: 
+  poolObjects:
+  - name: VFX_Explosion
+    prefabs:
+    - {fileID: 7923921168708631118, guid: 6db31b01fbf74594485fa6376e6b2ba5, type: 3}
+    - {fileID: 7870321643224606999, guid: 1ba9bca950b59ae4582fe91009cf8eef, type: 3}
+    - {fileID: 4021908287981459857, guid: 63b924f79f7eea54d9c5fb26eae1eea7, type: 3}
+    initCount: 30

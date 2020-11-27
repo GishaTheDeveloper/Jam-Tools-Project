@@ -27,7 +27,7 @@ namespace Gisha.JamTools.Test
 
             RaycastHit hitInfo;
             if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hitInfo))
-                VFXManager.Instance.Emit(vfxName, hitInfo.point, Quaternion.identity);
+                VFXManager.Instance.PoolEmit(vfxName, hitInfo.point, Quaternion.identity);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Gisha.Effects.VFX
             Instance = this;
         }
 
+        #region Emit Functions
         public void Emit(string effectName, Vector3 position, Quaternion rotation)
         {
             EffectData effect = Array.Find(effectsCollection, x => x.name == effectName);
@@ -42,6 +43,20 @@ namespace Gisha.Effects.VFX
 
             Instantiate(effect.prefab, position, rotation);
         }
+
+        public void PoolEmit(string effectName, Vector3 position, Quaternion rotation)
+        {
+            EffectData effect = Array.Find(effectsCollection, x => x.name == effectName);
+
+            if (effect == null)
+            {
+                Debug.LogErrorFormat("Effect with name {0} wasn't found!", effectName);
+                return;
+            }
+
+            Optimisation.PoolManager.Instantiate(effect.prefab, position, rotation);
+        }
+        #endregion
 
         #region ImportTarget
         public override void Import(string _collection, ResourceData[] _resources)
